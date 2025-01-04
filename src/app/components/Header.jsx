@@ -5,6 +5,8 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
+import { dark, light } from '@clerk/themes'
 export default function Header() {
   const path = usePathname();
   const { theme, setTheme } = useTheme ();
@@ -17,7 +19,7 @@ export default function Header() {
         <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
           Carlos
         </span>
-        Motion AIBlog
+        Motion AI Blog
       </Link>
       <form>
         <TextInput
@@ -37,11 +39,18 @@ export default function Header() {
         >
             {theme === 'light' ? <FaSun /> : <FaMoon />}
         </Button>
+        <SignedIn>
+          <UserButton 
+            appearance={{
+                baseTheme: theme === 'light' ? light : dark, 
+              }}
+          />
+        </SignedIn>
+        <SignedOut>
           <Link href='/sign-in'>
-            <Button gradientDuoTone='purpleToBlue' outline>
-              Sign In
-            </Button>
+            <Button gradientDuoTone='purpleToBlue' outline> Sign In</Button>
           </Link>
+        </SignedOut> 
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
