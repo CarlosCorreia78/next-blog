@@ -2,6 +2,7 @@ import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { createOrUpdateUser, deleteUser } from '@/lib/actions/user'
 import { clerkClient } from '@clerk/nextjs/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 
 
@@ -23,7 +24,7 @@ export async function POST(req) {
 
   // If there are no headers, error out
   if (!svix_id || !svix_timestamp || !svix_signature) {
-    return new Response('Error: Missing Svix headers', {
+    return new NextResponse('Error: Missing Svix headers', {
       status: 400,
     })
   }
@@ -43,7 +44,7 @@ export async function POST(req) {
     }) 
   } catch (err) {
     console.error('Error: Could not verify webhook:', err)
-    return new Response('Error: Verification error', {
+    return new NextResponse('Error: Verification error', {
       status: 400,
     })
   }
@@ -79,13 +80,13 @@ export async function POST(req) {
           }
           )
         } catch (error) {
-          console.log ('Error upadating', error);
+          console.log ('Error updating', error);
         
         }
       }
     } catch (error) {
         console.log ('Error creating or updating user:', error);
-        return new Response ('Error occured', { status: 400 });
+        return new NextResponse ('Error occured', { status: 400 });
     }
 
   } 
@@ -96,9 +97,9 @@ export async function POST(req) {
             await deleteUser (id);
     } catch (error) {
       console.log ('Error deleting user:', error);
-      return new Response ('Error occured', { status: 400 });
+      return new NextResponse ('Error occured', { status: 400 });
     }
     }
 
-  return new Response('', { status: 200 })
+  return new NextResponse('', { status: 200 })
 }
