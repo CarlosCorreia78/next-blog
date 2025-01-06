@@ -8,8 +8,7 @@ export const createOrUpdateUser = async (
   last_name,
   image_url,
   email_addresses,
-  username
-) => {
+  username) => {
   try {
     await connect();
     const user = await User.findOneAndUpdate(
