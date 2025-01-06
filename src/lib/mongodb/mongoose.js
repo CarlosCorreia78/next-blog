@@ -1,4 +1,4 @@
-import mongoose from "moongoose";
+import mongoose from "mongoose";
 
 let initialized = false;
 export const connect = async () => {
