@@ -2,11 +2,12 @@ import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { createOrUpdateUser, deleteUser } from '@/lib/actions/user'
 import { clerkClient } from '@clerk/nextjs/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 
 
 
-export async function POST(req) {
+export async function POST(request: NextRequest) {
   const SIGNING_SECRET = process.env.SIGNING_SECRET
 
   if (!SIGNING_SECRET) {
@@ -86,7 +87,7 @@ export async function POST(req) {
       }
     } catch (error) {
         console.log ('Error creating or updating user:', error);
-        return new Response ('Error occured', { status: 400 });
+        return new NextResponse ('Error occured', { status: 400 });
     }
 
   } 
@@ -97,9 +98,9 @@ export async function POST(req) {
             await deleteUser (id);
     } catch (error) {
       console.log ('Error deleting user:', error);
-      return new Response ('Error occured', { status: 400 });
+      return new NextResponse ('Error occured', { status: 400 });
     }
     }
 
-  return new Response('', { status: 200 })
+  return new NextResponse('', { status: 200 })
 }
