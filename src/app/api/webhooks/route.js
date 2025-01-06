@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 
 
-export async function POST(request: NextRequest) {
+export async function POST(req) {
   const SIGNING_SECRET = process.env.SIGNING_SECRET
 
   if (!SIGNING_SECRET) {
