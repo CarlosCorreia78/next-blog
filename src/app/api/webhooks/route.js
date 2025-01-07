@@ -1,17 +1,14 @@
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { createOrUpdateUser, deleteUser } from '@/lib/actions/user'
-import { NextRequest, NextResponse } from 'next/server'
 import { clerkClient } from '@clerk/nextjs/server'
 
 
 
-export async function POST(req) {
-  
-  const SIGNING_SECRET = process.env.SIGNING_SECRET
-  const {} = await request.json()
-  
 
+
+export async function POST(req) {
+  const SIGNING_SECRET = process.env.SIGNING_SECRET
   const client = await clerkClient()
 
   if (!SIGNING_SECRET) {
@@ -106,6 +103,5 @@ export async function POST(req) {
     }
     }
 
-  
-    return NextResponse.json({ success: true })
+  return new NextResponse('', { status: 200 })
 }
