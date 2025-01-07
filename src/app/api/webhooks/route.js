@@ -7,8 +7,11 @@ import { clerkClient } from '@clerk/nextjs/server'
 
 
 export async function POST(request: NextRequest) {
+  
   const SIGNING_SECRET = process.env.SIGNING_SECRET
-  const {user._id, user.isAdmin } = await request.json()
+  const {} = await request.json()
+  
+
   const client = await clerkClient()
 
   if (!SIGNING_SECRET) {
@@ -104,5 +107,5 @@ export async function POST(request: NextRequest) {
     }
 
   
-  return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true })
 }
