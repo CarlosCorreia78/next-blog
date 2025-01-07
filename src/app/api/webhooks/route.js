@@ -1,14 +1,17 @@
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { createOrUpdateUser, deleteUser } from '@/lib/actions/user'
-import { clerkClient } from '@clerk/nextjs/server'
 import { NextRequest, NextResponse } from 'next/server'
+import { clerkClient } from '@clerk/nextjs/server'
 
 
 
 
-export async function POST(req) {
+
+export async function POST(request: NextRequest) {
   const SIGNING_SECRET = process.env.SIGNING_SECRET
+  const {user._id, user.isAdmin } = await request.json()
+  const client = await clerkClient()
 
   if (!SIGNING_SECRET) {
     throw new Error('Error: Please add SIGNING_SECRET from Clerk Dashboard to .env or .env.local')
@@ -73,7 +76,7 @@ export async function POST(req) {
 
       if (user && eventType === 'user.created') {
         try {
-          await clerkClient.users.updateUserMetadata(userId, {
+          await client.users.updateUserMetadata(userId, {
             publicMetadata: {
               userMongoId: user._id,
               isAdmin: user.isAdmin,
@@ -102,5 +105,6 @@ export async function POST(req) {
     }
     }
 
-  return new NextResponse('', { status: 200 })
+  
+  return NextResponse.json({ success: true })
 }
