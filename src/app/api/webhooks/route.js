@@ -6,8 +6,6 @@ import { clerkClient } from '@clerk/nextjs/server'
 
 
 
-
-
 export async function POST(request: NextRequest) {
   const SIGNING_SECRET = process.env.SIGNING_SECRET
   const {user._id, user.isAdmin } = await request.json()
