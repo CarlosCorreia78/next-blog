@@ -32,6 +32,7 @@ export async function POST(req) {
   }
 
   // Get body
+  const wh = new Webhook(SIGNING_SECRET);
   const payload = await req.json()
   const body = JSON.stringify(payload)
 
