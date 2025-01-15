@@ -9,11 +9,10 @@ import 'react-quill-new/dist/quill.snow.css';
 
 export default function CreatePostPage() {
   const { isSignedIn, user, isLoaded } = useUser();
-
   if (!isLoaded) {
     return null;
   }
-
+  
   if (isSignedIn && user.publicMetadata.isAdmin) {
     return (
       <div className='p-3 max-w-3xl mx-auto min-h-screen'>
@@ -65,4 +64,5 @@ export default function CreatePostPage() {
         You are not authorized to view this page
       </h1>
     );
-  }}
+  }
+}
