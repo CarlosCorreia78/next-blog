@@ -18,18 +18,14 @@ export default async function Home() {
   return (
     <div className='flex flex-col justify-center items-center'>
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto '>
-        <h1 className='text-3xl font-bold lg:text-6xl'>Welcome to my Blog</h1>
+        <h1 className='text-3xl font-bold lg:text-6xl'>Technology reshapes artistic expression</h1>
         <p className='text-gray-500 text-sm sm:text-base'>
-          Discover a variety of articles and tutorials on topics such as web
-          development, software engineering, and programming languages, all
-          brought to you through a blog built with Next.js and{' '}
-          <a
-            href='https://go.clerk.com/fgJHKlt'
-            className='text-teal-500 hover:underline'
-            target='_blank'
-          >
-            Clerk
-          </a>
+        In an era where technology reshapes artistic expression, 
+        the fusion of artificial intelligence and traditional techniques offers exciting new possibilities for creators. 
+        This blog explores how AI tools can enhance classic methods.  
+        Join us as we navigate the dynamic intersection of human creativity and computational innovation, 
+        revealing fresh dimensions of artistry and challenging our perceptions of what it means to create.{' '}
+          
           .
         </p>
         <Link
@@ -39,7 +35,8 @@ export default async function Home() {
           View all posts
         </Link>
       </div>
-      <div className='p-3 bg-amber-100 dark:bg-slate-700'>
+      
+      <div className='max-w-7xl bg-white dark:bg-gray-900'>
         <CallToAction />
       </div>
       <div className='p-3 flex flex-col gap-8 py-7'>

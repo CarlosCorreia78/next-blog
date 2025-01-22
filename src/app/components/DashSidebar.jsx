@@ -7,6 +7,7 @@ import {
   HiDocumentText,
   HiOutlineUserGroup,
   HiChartPie,
+  HiDocument,
 } from 'react-icons/hi';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -66,6 +67,20 @@ export default function DashSidebar() {
               </Sidebar.Item>
             </Link>
           )}
+
+{user?.publicMetadata?.isAdmin && (
+            <Link href='/dashboard/create-post'>
+              <Sidebar.Item
+                active={tab === 'create-post'}
+                icon={HiDocument}
+                as='div'
+              >
+                Create Post
+              </Sidebar.Item>
+            </Link>
+          )}
+
+
           {user?.publicMetadata?.isAdmin && (
             <Link href='/dashboard?tab=users'>
               <Sidebar.Item
