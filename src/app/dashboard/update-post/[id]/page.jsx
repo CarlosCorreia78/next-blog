@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
 // https://dev.to/a7u/reactquill-with-nextjs-478b
 import 'react-quill-new/dist/quill.snow.css';
+
 import {
   getDownloadURL,
   getStorage,
@@ -27,46 +28,6 @@ export default function UpdatePost() {
   const [publishError, setPublishError] = useState(null);
   const router = useRouter();
   const pathname = usePathname();
-
-     // Customize the toolbar options
-     const modules = {
-      toolbar: [
-        [{ header: [1, 2, false] }],
-        ["bold", "italic", "underline", "strike", "blockquote"],
-        ["link", "image"],
-        ["video"],
-        [
-          {
-            color: ["#0694a2", "#5025d1", "#ff5555"],
-          },
-        ],
-
-        [
-          { list: ["ordered" , "bullet"]},
-          
-          { indent: "-1" },
-          { indent: "+1" },
-      ],
-        [{ "code-block": true }],
-        ["clean"],
-      ],
-    };
-    const formats = [
-      "header",
-      "bold",
-      "italic",
-      "underline",
-      "strike",
-      "blockquote",
-      "list",
-      "link",
-      "indent",
-      "image",
-      "code-block",
-      "color",
-      "video",
-    ];
-
   const postId = pathname.split('/').pop();
   useEffect(() => {
     const fetchPost = async () => {
@@ -192,11 +153,9 @@ export default function UpdatePost() {
               value={formData.category}
             >
               <option value='uncategorized'>Select a category</option>
-              <option value='motion'>Motion</option>
-              <option value='Ai'>Ai</option>
-              <option value='Animation'>Animation</option>
-              <option value='Vfx'>Vfx</option>
-              <option value='Vfx'>3d</option>
+              <option value='javascript'>JavaScript</option>
+              <option value='reactjs'>React.js</option>
+              <option value='nextjs'>Next.js</option>
             </Select>
           </div>
           <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
@@ -244,8 +203,6 @@ export default function UpdatePost() {
             onChange={(value) => {
               setFormData({ ...formData, content: value });
             }}
-            modules = {modules}
-            formats = {formats}
           />
           <Button type='submit' gradientDuoTone="greenToBlue">
             Update

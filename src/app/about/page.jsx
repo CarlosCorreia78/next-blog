@@ -1,9 +1,9 @@
 export default function About() {
     return (
       <div className='min-h-screen flex items-center justify-center'>
-        <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto '>
+        <div className='max-w-2xl mx-auto p-3 text-center'>
           <div>
-            <h1 className='text-6xl font-bold text-center my-7'>
+            <h1 className='text-3xl font font-semibold text-center my-7'>
               About Fused Realities Blog
             </h1>
             <div className='text-md text-gray-500 flex flex-col gap-6'>
@@ -23,8 +23,12 @@ export default function About() {
 
               <p>
                 Let me know if you want to be a {' '}
-                <a href='mailto:cgi.carlos@gmail.com?Subject=Blog Contact'>
-                  cgi.carlos@gmail.com
+                <a
+                  a href='Mailto:cgi.carlos@gmail.com?Subject=Blog Contact'
+                  target='_blank'
+                  className='text-teal-500 hover:underline'
+                >
+                  contributor
                 </a>
                 .
               </p>
