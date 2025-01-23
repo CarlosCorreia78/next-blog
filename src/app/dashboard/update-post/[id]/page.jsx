@@ -34,7 +34,6 @@ export default function UpdatePost() {
         [{ header: [1, 2, false] }],
         ["bold", "italic", "underline", "strike", "blockquote"],
         ["link", "image"],
-
         ["video"],
         [
           {
@@ -43,8 +42,8 @@ export default function UpdatePost() {
         ],
 
         [
-          { list: "ordered" },
-          { list: "bullet" },
+          { list: ["ordered" , "bullet"]},
+          
           { indent: "-1" },
           { indent: "+1" },
       ],

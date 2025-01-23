@@ -40,8 +40,8 @@ export default function Header() {
         <span className='px-2 py-1 bg-gradient-to-br from-green-400 to-cyan-600 rounded-lg text-white'>
           Fused Realities 
         </span>
-        <text className='self-center whitespace-nowrap text-sm sm:text-sl font-semibold dark:text-white'>
-        {" "}{" "}{" "} </text>
+        <span className='self-center whitespace-nowrap text-sm sm:text-sl font-semibold dark:text-white'>
+        {" "}{" "}{" "} </span>
       </Link>
 
       <form onSubmit={handleSubmit}>

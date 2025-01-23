@@ -23,7 +23,7 @@ export default function FooterCom() {
         <div className='w-full sm:flex sm:items-center sm:justify-between'>
           <Footer.Copyright
             a href='Mailto:cgi.carlos@gmail.com?Subject=Blog Contact'
-            by="cgi.carlos@gmail.com"
+            by="Fused Realities"
             year={new Date().getFullYear()}
           />
 

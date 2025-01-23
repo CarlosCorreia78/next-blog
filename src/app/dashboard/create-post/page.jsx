@@ -9,7 +9,6 @@ import { useRouter } from 'next/navigation';
 const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
 // https://dev.to/a7u/reactquill-with-nextjs-478b
 import 'react-quill-new/dist/quill.snow.css';
-import YouTube from "react-youtube";
 import {
   getDownloadURL,
   getStorage,
@@ -37,7 +36,6 @@ export default function CreatePostPage() {
       [{ header: [1, 2, false] }],
       ["bold", "italic", "underline", "strike", "blockquote"],
       ["link", "image"],
-
       ["video"],
       [
         {
@@ -45,8 +43,8 @@ export default function CreatePostPage() {
         },
       ],
       [
-        { list: "ordered" },
-        { list: "bullet" },
+        { list: ["ordered" , "bullet"]},
+
         { indent: "-1" },
         { indent: "+1" },
     ],
