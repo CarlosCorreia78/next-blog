@@ -36,12 +36,11 @@ export default async function Home() {
         </Link>
       </div>
       
-      <div className='max-w-6xl gap-6 p-1 bg-white dark:bg-gray-900'>
+      <div className='max-w-7xl bg-white dark:bg-gray-900'>
         <CallToAction />
       </div>
-
-      <div className='p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
-        <RecentPosts limit={3} />
+      <div className='p-3 flex flex-col gap-8 py-7'>
+        <RecentPosts limit={9} />
         <Link
           href={'/search?category=null'}
           className='text-lg text-teal-500 hover:underline text-center'
@@ -50,6 +49,5 @@ export default async function Home() {
         </Link>
       </div>
     </div>
-    
   );
 }
