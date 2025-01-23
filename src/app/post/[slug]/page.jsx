@@ -50,7 +50,7 @@ export default async function PostPage({ params }) {
       </div>
       <div
         className='p-3 max-w-8xl mx-auto w-full post-content'
-        dangerouslySetInnerHTML={{ __html: post?.content }}
+        dangerouslySetInnerHTML={{ __html: post?.content || '' }}
       ></div>
 
       <RecentPosts limit={4} />
