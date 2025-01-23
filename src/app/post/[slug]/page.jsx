@@ -42,7 +42,7 @@ export default async function PostPage({ params }) {
         alt={post && post.title}
         className='mt-10 p-3 max-h-[600px] w-full object-cover'
       />
-      <div className='flex justify-between p-3 border-b border-slate-300 mx-auto w-full max-w-8xl text-xs'>
+      <div className='flex justify-between p-3 border-b border-slate-600 mx-auto w-full max-w-8xl text-xs'>
         <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
         <span className='italic'>
           {post && (post?.content?.length / 1000).toFixed(0)} mins read
@@ -53,7 +53,7 @@ export default async function PostPage({ params }) {
         dangerouslySetInnerHTML={{ __html: post?.content }}
       ></div>
 
-      <RecentPosts limit={3} />
+      <RecentPosts limit={4} />
     </main>
   );
 }
