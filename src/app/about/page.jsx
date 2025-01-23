@@ -23,12 +23,8 @@ export default function About() {
 
               <p>
                 Let me know if you want to be a {' '}
-                <a
-                  a href='Mailto:cgi.carlos@gmail.com?Subject=Blog Contact'
-                  target='_blank'
-                  className='text-teal-500 hover:underline'
-                >
-                  contributor
+                <a href='mailto:cgi.carlos@gmail.com?Subject=Blog Contact'>
+                  cgi.carlos@gmail.com
                 </a>
                 .
               </p>
