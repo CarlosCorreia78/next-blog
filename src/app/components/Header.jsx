@@ -32,7 +32,7 @@ export default function Header() {
     }
   }, [searchParams]);
   return (
-    <Navbar className='border-b-2'>
+    <Navbar className='border-b-2 flex flex-col  px-3 max-w-6xl mx-auto' >
       <Link
         href='/'
         className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
@@ -41,7 +41,7 @@ export default function Header() {
           Fused Realities 
         </span>
         <text className='self-center whitespace-nowrap text-sm sm:text-sl font-semibold dark:text-white'>
-        {" "}{" "}{" "} Crafting Imagery at the Intersection of AI and Traditional Techniques</text>
+        {" "}{" "}{" "} </text>
       </Link>
 
       <form onSubmit={handleSubmit}>
@@ -94,11 +94,7 @@ export default function Header() {
             About
           </Navbar.Link>
         </Link>
-        <Link href='/projects'>
-          <Navbar.Link active={path === '/projects'} as={'div'}>
-            Projects
-          </Navbar.Link>
-        </Link>
+
       </Navbar.Collapse>
     </Navbar>
     

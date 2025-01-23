@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 const ReactQuill = dynamic(() => import('react-quill-new'), { ssr: false });
 // https://dev.to/a7u/reactquill-with-nextjs-478b
 import 'react-quill-new/dist/quill.snow.css';
-
+import YouTube from "react-youtube";
 import {
   getDownloadURL,
   getStorage,
@@ -17,7 +17,6 @@ import {
   uploadBytesResumable,
 } from 'firebase/storage';
 import { app } from '@/firebase';
-
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
@@ -31,6 +30,46 @@ export default function CreatePostPage() {
   const [publishError, setPublishError] = useState(null);
   const router = useRouter();
   console.log(formData);
+
+   // Customize the toolbar options
+   const modules = {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      ["link", "image"],
+
+      ["video"],
+      [
+        {
+          color: ["#0694a2", "#5025d1", "#ff5555"],
+        },
+      ],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+    ],
+      [{ "code-block": true }],
+      ["clean"],
+    ],
+  };
+  const formats = [
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "list",
+    "link",
+    "indent",
+    "image",
+    "code-block",
+    "color",
+    "video",
+  ];
+
 
   const handleUpdloadImage = async () => {
     try {
@@ -124,9 +163,11 @@ export default function CreatePostPage() {
               }
             >
               <option value='uncategorized'>Select a category</option>
-              <option value='javascript'>JavaScript</option>
-              <option value='reactjs'>React.js</option>
-              <option value='nextjs'>Next.js</option>
+              <option value='motion'>Motion</option>
+              <option value='Ai'>Ai</option>
+              <option value='Animation'>Animation</option>
+              <option value='Vfx'>Vfx</option>
+              <option value='Vfx'>3d</option>
             </Select>
           </div>
           <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
@@ -137,7 +178,7 @@ export default function CreatePostPage() {
             />
             <Button
               type='button'
-              gradientDuoTone='purpleToBlue'
+              gradientDuoTone="greenToBlue"
               size='sm'
               outline
               onClick={handleUpdloadImage}
@@ -175,8 +216,10 @@ export default function CreatePostPage() {
             onChange={(value) => {
               setFormData({ ...formData, content: value });
             }}
+            modules = {modules}
+            formats = {formats}
           />
-          <Button type='submit' gradientDuoTone='purpleToPink'>
+          <Button type='submit' gradientDuoTone="greenToBlue">
             Publish
           </Button>
         </form>

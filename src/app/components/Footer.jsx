@@ -11,23 +11,13 @@ import {
 } from 'react-icons/bs';
 export default function FooterCom() {
   return (
-    <Footer container className='border border-t-8 border-teal-500'>
-      <div className='w-full max-w-7xl mx-auto'>
+    <Footer container className='flex flex-col  px-3 max-w-6xl mx-auto'>
+      <div className='w-full max-w-6xl mx-auto'>
         <div className='grid w-full justify-between sm:flex md:grid-cols-1'>
-          <div className='mt-5'>
-            <Link
-              href='/'
-              className='self-center whitespace-nowrap text-lg sm:text-xl font-semibold dark:text-white'
-            >
-              <span className='px-2 py-1 bg-gradient-to-br from-green-400 to-cyan-600 rounded-lg text-white'>
-              Fused Realities
-              </span>
-    
-            </Link>
-          </div>
+
 
         </div>
-        <Footer.Divider />
+        <Footer.Divider className='border-t-4'/>
         
         
         <div className='w-full sm:flex sm:items-center sm:justify-between'>

@@ -53,7 +53,7 @@ export default async function PostPage({ params }) {
         dangerouslySetInnerHTML={{ __html: post?.content }}
       ></div>
 
-      <RecentPosts limit={4} />
+      <RecentPosts limit={3} />
     </main>
   );
 }

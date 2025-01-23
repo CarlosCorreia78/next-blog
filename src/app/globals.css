@@ -39,3 +39,9 @@ body {
 .dark .post-content a {
   color: red;
 }
+
+.ql-editor .ql-video {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+}
