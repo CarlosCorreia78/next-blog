@@ -41,7 +41,7 @@ export default async function Home() {
       </div>
 
       <div className='p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
-        <RecentPosts limit={9} />
+        <RecentPosts limit={3} />
         <Link
           href={'/search?category=null'}
           className='text-lg text-teal-500 hover:underline text-center'
